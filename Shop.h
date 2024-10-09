@@ -17,4 +17,4 @@ public:
     void showInventory();
 };
 
-#endif // SHOP_H
+#endif 

@@ -38,13 +38,13 @@ public:
     bool operator<(const Overcoat& other) const;
     bool operator<=(const Overcoat& other) const;
 
-    Overcoat& operator++(); // префіксний інкремент
-    Overcoat operator++(int); // постфіксний інкремент
-    Overcoat& operator--(); // префіксний декремент
-    Overcoat operator--(int); // постфіксний декремент
+    Overcoat& operator++(); 
+    Overcoat operator++(int); 
+    Overcoat& operator--(); 
+    Overcoat operator--(int); 
 
     friend std::istream& operator>>(std::istream& in, Overcoat& overcoat);
     friend std::ostream& operator<<(std::ostream& out, const Overcoat& overcoat);
 };
 
-#endif // OVERCOAT_H
+#endif 
