@@ -3,7 +3,9 @@
 Overcoat::Overcoat() : name(""), type(CoatType::MALE), size(0), price(0.0) {}
 
 Overcoat::Overcoat(std::string name, CoatType type, int size, double price)
-    : name(name), type(type), size(size), price(price) {}
+    : name(name), type(type), price(price) {
+    setSize(size); // Використовуємо метод для забезпечення парності
+}
 
 std::string Overcoat::getName() const {
     return name;
@@ -30,7 +32,13 @@ void Overcoat::setType(CoatType type) {
 }
 
 void Overcoat::setSize(int size) {
-    this->size = size;
+    if (size % 2 == 0) {
+        this->size = size;
+    }
+    else {
+        std::cout << "Size must be even. Setting size to 0." << std::endl;
+        this->size = 0;
+    }
 }
 
 void Overcoat::setPrice(double price) {
@@ -62,24 +70,28 @@ bool Overcoat::operator<=(const Overcoat& other) const {
 }
 
 Overcoat& Overcoat::operator++() {
-    ++size;
+    size += 2; // Тут буде пасхалка
     return *this;
 }
 
 Overcoat Overcoat::operator++(int) {
     Overcoat temp = *this;
-    ++size;
+    size += 2;
     return temp;
 }
 
 Overcoat& Overcoat::operator--() {
-    --size;
+    if (size >= 2) {
+        size -= 2; 
+    }
     return *this;
 }
 
 Overcoat Overcoat::operator--(int) {
     Overcoat temp = *this;
-    --size;
+    if (size >= 2) {
+        size -= 2;
+    }
     return temp;
 }
 

@@ -14,7 +14,7 @@ class Overcoat {
 private:
     std::string name;
     CoatType type;
-    int size;
+    int size; // Розмір, має бути парним
     double price;
 
 public:
